@@ -217,6 +217,11 @@ def trigger_emergency_call(
             to=target,
             from_=TWILIO_PHONE_NUMBER
         )
+        try:
+            from database import update_incident
+            update_incident(inc_id, status="DISPATCHED")
+        except Exception:
+            pass
         return {
             "success": True,
             "sid": call.sid,
@@ -241,6 +246,11 @@ def trigger_emergency_call(
                 to=target,
                 from_=TWILIO_PHONE_NUMBER
             )
+            try:
+                from database import update_incident
+                update_incident(inc_id, status="DISPATCHED")
+            except Exception:
+                pass
             return {
                 "success": True,
                 "sid": call.sid,
@@ -257,6 +267,11 @@ def trigger_emergency_call(
                 to=target,
                 from_=TWILIO_PHONE_NUMBER
             )
+            try:
+                from database import update_incident
+                update_incident(inc_id, status="DISPATCHED")
+            except Exception:
+                pass
             return {
                 "success": True,
                 "sid": call.sid,
